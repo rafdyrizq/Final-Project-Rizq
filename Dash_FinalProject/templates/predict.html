@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="scripts.js">
+	</script>
+	<link rel="stylesheet" href="styles.css">
+    <title>Predict Salary</title>
+</head>
+
+<body style="background-image: url({{url_for('static',filename='cream1.jpg') }})">
+
+    <!-- HEADING -->
+    <center><br>
+        <!-- <img src="../static/logo2.png" width="8%" > -->
+        <br><br>
+        <h2 class="display-4"><strong>SALARY PREDICTOR</strong> <span class="badge badge-secondary"></span></h2>
+        <br>
+    </center>
+
+    <div class="container-fluid"></div>
+        <center>
+        <form method="POST" action = "http://127.0.0.1:5000/result">
+<!-- 
+        <h5><span class="badge badge-secondary">Alcohol</span>    
+            <input type="number" name="Alcohol" step="0.001" min="5" max="15" placeholder="Input Alcohol" required/></h5>
+
+        <h5><span class="badge badge-secondary">fixed acidity level</span>
+            <input type="radio" id="low" name="fal" value="low">
+            <label for="low">Low</label><br>
+            <input type="radio" id="medium" name="fal" value="medium">
+            <label for="medium">Medium</label><br>
+            <input type="radio" id="high" name="fal" value="high">
+            <label for="high">High</label></h5>
+-->
+            
+        <!-- 10percentage         -->
+        <h5><span class="badge badge-secondary">10 percentage</span>    
+            <input type="number" name="10percentage" step="0.01" min="0" max="100" placeholder="Input 10 percentage" required/></h5>
+
+        <!-- 12percentage -->
+        <h5><span class="badge badge-secondary">12 percentage</span>    
+            <input type="number" name="12percentage" step="0.01" min="0" max="100" placeholder="Input 12 percentage" required/></h5>
+
+        <!-- 12graduation  -->
+        <h5><span class="badge badge-secondary">12 Graduation</span>    
+            <input type="number" name="12graduation" step="1" min="1998" max="2012" placeholder="Input 12 Graduation" required/></h5>
+
+        <!-- GraduationYear  -->
+        <h5><span class="badge badge-secondary">Graduation Year</span>    
+            <input type="number" name="GraduationYear" step="1" min="2007" max="2017" placeholder="Input Graduation Year" required/></h5>
+
+        <!-- collegeGPA  -->
+        <h5><span class="badge badge-secondary">College GPA</span>    
+            <input type="number" name="collegeGPA" step="0.01" min="0" max="100" placeholder="Input College GPA" required/></h5>
+
+        <!-- English   -->
+        <h5><span class="badge badge-secondary">English</span>    
+            <input type="number" name="English" step="0.1" min="0" max="900" placeholder="Input English" required/></h5>
+
+        <!-- Quant  -->
+        <h5><span class="badge badge-secondary">Quant</span>    
+            <input type="number" name="Quant" step="0.1" min="0" max="900" placeholder="Input Quant" required/></h5>
+
+        <!-- Domain  -->
+        <h5><span class="badge badge-secondary">Domain</span>    
+            <input type="number" name="Domain" step="0.1" min="0" max="900" placeholder="Input Domain" required/></h5>
+
+        <!-- Gender -->
+        <h5><span class="badge badge-secondary">Gender</span>
+            <select id="Gender" name="Gender" size="2">
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+            </select><br><br>
+
+        <!-- 10board -->
+        <h5><span class="badge badge-secondary">10 board</span> 
+            <select id="10board" name="10board" size="3">
+                <option value="cbse">cbse</option>
+                <option value="maharashtra state board,pune">maharashtra state board,pune</option>
+                <option value="icse">icse</option>
+                <option value="state board">state board</option>
+                <option value="delhi board">delhi board</option>
+                <option value="0">0</option>
+                <option value="hse">hse</option>
+                <option value="board of school education harayana">board of school education harayana</option>
+                <option value="rbse">rbse</option>
+                <option value="u p board">u p board</option>
+                <option value="bse, odisha">bse, odisha</option>
+                <option value="rajasthan board of secondary education">rajasthan board of secondary education</option>
+                <option value="up board">up board</option>
+                <option value="council for indian school certificate examination">council for indian school certificate examination</option>
+                <option value="kea">kea</option>
+                <option value="uttar pradesh">uttar pradesh</option>
+                <option value="board of secondary education,andhara pradesh">board of secondary education,andhara pradesh</option>
+                <option value="wbbse">wbbse</option>
+                <option value="matriculation board">matriculation board</option>
+                <option value="board of secondary education - andhra pradesh">board of secondary education - andhra pradesh</option>
+                <option value="mp">mp</option>
+                <option value="up">up</option>
+                <option value="karnataka">karnataka</option>
+                <option value="ssc">ssc</option>
+                <option value="kseeb">kseeb</option>
+                <option value="bse">bse</option>
+                <option value="gseb">gseb</option>
+                <option value="uttar pradesh board">uttar pradesh board</option>
+                <option value="matriculation">matriculation</option>
+                <option value="karnataka secondary education board">karnataka secondary education board</option>
+                <option value="maharastra board">maharastra board</option>
+                <option value="tn state board">tn state board</option>
+                <option value="board of secondary education">board of secondary education</option>
+                <option value="sslc">sslc</option>
+                <option value="board secondary  education">board secondary  education</option>
+                <option value="karnataka secondary school of examination">karnataka secondary school of examination</option>
+                <option value="metric">metric</option>
+                <option value="maharashtra state board">maharashtra state board</option>
+                <option value="maharashtra sate board">maharashtra sate board</option>
+                <option value="matric">matric</option>
+                <option value="hbse">hbse</option>
+                <option value="state">state</option>
+                <option value="state boardmp board ">state boardmp board </option>
+                <option value="karnataka board of higher education">karnataka board of higher education</option>
+                <option value="hsce">hsce</option>
+                <option value="nagpur divisional board">nagpur divisional board</option>
+                <option value="bihar board">bihar board</option>
+                <option value="jkbose">jkbose</option>
+                <option value="secondary state certificate">secondary state certificate</option>
+                <option value="secondary school of education">secondary school of education</option>
+                <option value="kseb">kseb</option>
+                <option value="mpboard">mpboard</option>
+                <option value="cbse board">cbse board</option>
+                <option value="up bourd">up bourd</option>
+                <option value="j&k state board of school education">j&k state board of school education</option>
+                <option value="board of secondary education,andhra pradesh">board of secondary education,andhra pradesh</option>
+                <option value="kerala state board">kerala state board</option>
+                <option value="hsc">hsc</option>
+                <option value="rajasthan board">rajasthan board</option>
+                <option value="pune">pune</option>
+                <option value="karnataka state board">karnataka state board</option>
+                <option value="upboard">upboard</option>
+                <option value="gujarat state board">gujarat state board</option>
+                <option value="state board - west bengal board of secondary education : wbbse">state board - west bengal board of secondary education : wbbse</option>
+                <option value="karnataka secondary education examination board">karnataka secondary education examination board</option>
+                <option value="bseb">bseb</option>
+                <option value="cgbse">cgbse</option>
+                <option value="uttarakhand board">uttarakhand board</option>
+                <option value="sri kannika parameswari highier secondary school, udumalpet">sri kannika parameswari highier secondary school, udumalpet</option>
+                <option value="maharashtra satate board">maharashtra satate board</option>
+                <option value="kerala state technical education">kerala state technical education</option>
+                <option value="karnataka education board (keeb)">karnataka education board (keeb)</option>
+                <option value="ssc regular">ssc regular</option>
+                <option value="board of secondary education, andhra pradesh">board of secondary education, andhra pradesh</option>
+                <option value="state board (jac, ranchi)">state board (jac, ranchi)</option>
+                <option value="gyan bharati school">gyan bharati school</option>
+                <option value="anglo indian">anglo indian</option>
+                <option value="west bengal board of secondary education">west bengal board of secondary education</option>
+                <option value="central board of secondary education">central board of secondary education</option>
+                <option value="up baord">up baord</option>
+                <option value="pseb">pseb</option>
+                <option value="maharashtra state board of secondary and higher secondary education,pune">maharashtra state board of secondary and higher secondary education,pune</option>
+                <option value="karnataka state secondary education board">karnataka state secondary education board</option>
+                <option value="karnataka secondary education">karnataka secondary education</option>
+                <option value="madhya pradesh board">madhya pradesh board</option>
+                <option value="board of ssc education andhra pradesh">board of ssc education andhra pradesh</option>
+                <option value="stateboard">stateboard</option>
+                <option value="board of secondary education, rajasthan">board of secondary education, rajasthan</option>
+                <option value="ksseb">ksseb</option>
+                <option value="cbsc">cbsc</option>
+                <option value="bharathi matriculation school">bharathi matriculation school</option>
+                <option value="uttrakhand board">uttrakhand board</option>
+                <option value="nagpur">nagpur</option>
+                <option value="board of secondary education (bse) orissa">board of secondary education (bse) orissa</option>
+                <option value="bseb, patna">bseb, patna</option>
+                <option value="mpbse">mpbse</option>
+                <option value="kalaimagal matriculation higher secondary school">kalaimagal matriculation higher secondary school</option>
+                <option value="tamilnadu matriculation board">tamilnadu matriculation board</option>
+                <option value="karnataka board">karnataka board</option>
+                <option value="delhi public school">delhi public school</option>
+                <option value="secondary board of rajasthan">secondary board of rajasthan</option>
+                <option value="jseb">jseb</option>
+                <option value="up(allahabad)">up(allahabad)</option>
+                <option value="bse,orissa">bse,orissa</option>
+                <option value="rbse (state board)">rbse (state board)</option>
+                <option value="ssc maharashtra board">ssc maharashtra board</option>
+                <option value="up board,allahabad">up board,allahabad</option>
+                <option value="mp board">mp board</option>
+                <option value="board of secendary education orissa">board of secendary education orissa</option>
+                <option value="bihar school examination board">bihar school examination board</option>
+                <option value="apssc">apssc</option>
+                <option value="up board , allahabad">up board , allahabad</option>
+                <option value="mirza ahmed ali baig">mirza ahmed ali baig</option>
+                <option value="maharashtra board">maharashtra board</option>
+                <option value="aurangabad board">aurangabad board</option>
+                <option value="jharkhand secondary board">jharkhand secondary board</option>
+                <option value="kiran english medium high school">kiran english medium high school</option>
+                <option value="state board of secondary education, andhra pradesh">state board of secondary education, andhra pradesh</option>
+                <option value="maharashtra state board for ssc">maharashtra state board for ssc</option>
+                <option value="sarada high scchool">sarada high scchool</option>
+                <option value="pune board">pune board</option>
+                <option value="uttaranchal state board">uttaranchal state board</option>
+                <option value="uttranchal board">uttranchal board</option>
+                <option value="ap state board">ap state board</option>
+                <option value="stjosephs girls higher sec school,dindigul">stjosephs girls higher sec school,dindigul</option>
+                <option value="nagpur board">nagpur board</option>
+                <option value="aisse">aisse</option>
+                <option value="mp board bhopal">mp board bhopal</option>
+                <option value="maharashtra state board of secondary and higher secondary education">maharashtra state board of secondary and higher secondary education</option>
+                <option value="west bengal  board of secondary education">west bengal  board of secondary education</option>
+                <option value="hbsc">hbsc</option>
+                <option value="state bord">state bord</option>
+                <option value="central board of secondary education, new delhi">central board of secondary education, new delhi</option>
+                <option value="kseeb(karnataka secondary education examination board)">kseeb(karnataka secondary education examination board)</option>
+                <option value="wbbsce">wbbsce</option>
+                <option value="school secondary education, andhra pradesh">school secondary education, andhra pradesh</option>
+                <option value="nashik board">nashik board</option>
+                <option value="secondary school certificate">secondary school certificate</option>
+                <option value="state board ">state board </option>
+                <option value="ssc board of andrapradesh">ssc board of andrapradesh</option>
+                <option value="jbse,jharkhand">jbse,jharkhand</option>
+                <option value="ksbe">ksbe</option>
+                <option value="jharkhand acedemic council">jharkhand acedemic council</option>
+                <option value="jharkhand secondary examination board (ranchi)">jharkhand secondary examination board (ranchi)</option>
+                <option value="board ofsecondary education,ap">board ofsecondary education,ap</option>
+                <option value="matric board">matric board</option>
+                <option value="national public school">national public school</option>
+                <option value="mhsbse">mhsbse</option>
+                <option value="hse,orissa">hse,orissa</option>
+                <option value="karnataka sslc board bangalore">karnataka sslc board bangalore</option>
+                <option value="icse board">icse board</option>
+                <option value="jawahar navodaya vidyalaya">jawahar navodaya vidyalaya</option>
+                <option value="dav public school,hehal">dav public school,hehal</option>
+                <option value="maharashtra board, pune">maharashtra board, pune</option>
+                <option value="secondary school education">secondary school education</option>
+                <option value="board of secondary education,ap">board of secondary education,ap</option>
+                <option value="stmary higher secondary">stmary higher secondary</option>
+                <option value="latur board">latur board</option>
+                <option value="bse,odisha">bse,odisha</option>
+                <option value="gujarat board">gujarat board</option>
+                <option value="bseb,patna">bseb,patna</option>
+                <option value="up board allahabad">up board allahabad</option>
+                <option value="maharashtra state(latur board)">maharashtra state(latur board)</option>
+                <option value="andhra pradesh state board">andhra pradesh state board</option>
+                <option value="maharashtra">maharashtra</option>
+                <option value="education board of kerala">education board of kerala</option>
+                <option value="apsche">apsche</option>
+                <option value="ksseb(karnataka state board)">ksseb(karnataka state board)</option>
+                <option value="punjab school education board, mohali">punjab school education board, mohali</option>
+                <option value="bihar school examination board patna">bihar school examination board patna</option>
+                <option value="ap state board for secondary education">ap state board for secondary education</option>
+                <option value="cbse ">cbse </option>
+                <option value="sslc,karnataka">sslc,karnataka</option>
+                <option value="karnataka secondory education board">karnataka secondory education board</option>
+                <option value="board of secondary education orissa">board of secondary education orissa</option>
+                <option value="bseb patna">bseb patna</option>
+                <option value="board of secondary education(bse) orissa">board of secondary education(bse) orissa</option>
+                <option value="maticulation">maticulation</option>
+                <option value="j & k bord">j & k bord</option>
+                <option value="msbshse,pune">msbshse,pune</option>
+                <option value="bihar secondary education board,patna">bihar secondary education board,patna</option>
+                <option value="hse,board">hse,board</option>
+                <option value="karnataka board of secondary education">karnataka board of secondary education</option>
+                <option value="tamilnadu state board">tamilnadu state board</option>
+                <option value="stjoseph of cluny matrhrsecschool,neyveli,cuddalore district">stjoseph of cluny matrhrsecschool,neyveli,cuddalore district</option>
+                <option value="karnataka secondary eduction">karnataka secondary eduction</option>
+                <option value="board of high school and intermediate education uttarpradesh">board of high school and intermediate education uttarpradesh</option>
+                <option value="andhra pradesh board ssc">andhra pradesh board ssc</option>
+                <option value="upbhsie">upbhsie</option>
+                <option value="state borad hp">state borad hp</option>
+                <option value="little jacky matric higher secondary school">little jacky matric higher secondary school</option>
+                <option value="board of  secondary education">board of  secondary education</option>
+                <option value="ghseb">ghseb</option>
+                <option value="kolhapur">kolhapur</option>
+                <option value="biharboard">biharboard</option>
+                <option value="certificate of middle years program of ib">certificate of middle years program of ib</option>
+                <option value="secondary education board of rajasthan">secondary education board of rajasthan</option>
+                <option value="icse board , new delhi">icse board , new delhi</option>
+                <option value="sss pune">sss pune</option>
+                <option value="maharashtra nasik board">maharashtra nasik board</option>
+                <option value="ua">ua</option>
+                <option value="ssc-andhra pradesh">ssc-andhra pradesh</option>
+                <option value="sslc board">sslc board</option>
+                <option value="uttaranchal shiksha avam pariksha parishad">uttaranchal shiksha avam pariksha parishad</option>
+                <option value="bsepatna">bsepatna</option>
+                <option value="himachal pradesh board">himachal pradesh board</option>
+                <option value="rajasthan board ajmer">rajasthan board ajmer</option>
+                <option value="state board of secondary education, ap">state board of secondary education, ap</option>
+                <option value="jharkhand secondary education board">jharkhand secondary education board</option>
+                <option value="haryana board of school education">haryana board of school education</option>
+                <option value="gsheb">gsheb</option>
+                <option value="bright way college, (up board)">bright way college, (up board)</option>
+                <option value="u p">u p</option>
+                <option value="secondary school cerfificate">secondary school cerfificate</option>
+                <option value="up bord">up bord</option>
+                <option value="karnataka state education examination board">karnataka state education examination board</option>
+                <option value="himachal pradesh board of school education">himachal pradesh board of school education</option>
+                <option value="jharkhand academic council">jharkhand academic council</option>
+                <option value="board of secondary school education">board of secondary school education</option>
+                <option value="bsemp">bsemp</option>
+                <option value="karnataka education board">karnataka education board</option>
+            </select><br><br>
+        </h5>
+
+        <!-- 12board -->
+        <h5><span class="badge badge-secondary">12 board</span> 
+            <select id="12board" name="12board" size="3">
+                <option value="cbse">cbse</option>
+                <option value="amravati divisional board">amravati divisional board</option>
+                <option value="state board">state board</option>
+                <option value="all india board">all india board</option>
+                <option value="0">0</option>
+                <option value="chse">chse</option>
+                <option value="state board of technical education harayana">state board of technical education harayana</option>
+                <option value="u p board">u p board</option>
+                <option value="rajasthan board of secondary education">rajasthan board of secondary education</option>
+                <option value="up board">up board</option>
+                <option value="council for indian school certificate examination">council for indian school certificate examination</option>
+                <option value="kea">kea</option>
+                <option value="board of intermediate education,hyderabad">board of intermediate education,hyderabad</option>
+                <option value="wbchse">wbchse</option>
+                <option value="hisher seconadry examination(state board)">hisher seconadry examination(state board)</option>
+                <option value="board fo intermediate education, ap">board fo intermediate education, ap</option>
+                <option value="up">up</option>
+                <option value="karnataka state">karnataka state</option>
+                <option value="intermediate board">intermediate board</option>
+                <option value="directorate of technical education,banglore">directorate of technical education,banglore</option>
+                <option value="board of intermediate education">board of intermediate education</option>
+                <option value="hsc">hsc</option>
+                <option value="icse">icse</option>
+                <option value="board of intermediate">board of intermediate</option>
+                <option value="gsheb">gsheb</option>
+                <option value="uttar pradesh board">uttar pradesh board</option>
+                <option value="rbse">rbse</option>
+                <option value="pre-university board">pre-university board</option>
+                <option value="maharashtra board">maharashtra board</option>
+                <option value="isc">isc</option>
+                <option value="tn state board">tn state board</option>
+                <option value="puc">puc</option>
+                <option value="baord of intermediate education">baord of intermediate education</option>
+                <option value="karnataka pre university board">karnataka pre university board</option>
+                <option value="bieap">bieap</option>
+                <option value="state">state</option>
+                <option value="maharashtra state board">maharashtra state board</option>
+                <option value="intermediate">intermediate</option>
+                <option value="p u board, karnataka">p u board, karnataka</option>
+                <option value="hbse">hbse</option>
+                <option value="board of intermediate ap">board of intermediate ap</option>
+                <option value="andhra board">andhra board</option>
+                <option value="pu">pu</option>
+                <option value="uttar pradesh">uttar pradesh</option>
+                <option value="pre university board of karnataka">pre university board of karnataka</option>
+                <option value="ssc">ssc</option>
+                <option value="madhya pradesh open school">madhya pradesh open school</option>
+                <option value="nagpur divisional board">nagpur divisional board</option>
+                <option value="bihar board">bihar board</option>
+                <option value="jkbose">jkbose</option>
+                <option value="matriculation">matriculation</option>
+                <option value="pu board">pu board</option>
+                <option value="ipe">ipe</option>
+                <option value="higher secondary state certificate">higher secondary state certificate</option>
+                <option value="jaswant modern school">jaswant modern school</option>
+                <option value="mp board">mp board</option>
+                <option value="up bourd">up bourd</option>
+                <option value="department of technical education">department of technical education</option>
+                <option value="j&k state board of school education">j&k state board of school education</option>
+                <option value="kerala state board">kerala state board</option>
+                <option value="ap board">ap board</option>
+                <option value="rajasthan board">rajasthan board</option>
+                <option value="msbte">msbte</option>
+                <option value="pre university board, karnataka">pre university board, karnataka</option>
+                <option value="bseb">bseb</option>
+                <option value="upboard">upboard</option>
+                <option value="wbbhse">wbbhse</option>
+                <option value="state board - west bengal council of higher secondary education : wbchse">state board - west bengal council of higher secondary education : wbchse</option>
+                <option value="department of pre-university education">department of pre-university education</option>
+                <option value="pu board ,karnataka">pu board ,karnataka</option>
+                <option value="cgbse">cgbse</option>
+                <option value="uttarakhand board">uttarakhand board</option>
+                <option value="sbtet">sbtet</option>
+                <option value="hse">hse</option>
+                <option value="sri kannika parameswari highier secondary school, udumalpet">sri kannika parameswari highier secondary school, udumalpet</option>
+                <option value="maharashtra satate board">maharashtra satate board</option>
+                <option value="kerala state hse board">kerala state hse board</option>
+                <option value="pu board karnataka">pu board karnataka</option>
+                <option value="board of intermediate education, andhra pradesh">board of intermediate education, andhra pradesh</option>
+                <option value="karnataka pre-university board">karnataka pre-university board</option>
+                <option value="state board (jac, ranchi)">state board (jac, ranchi)</option>
+                <option value="karnataka state board">karnataka state board</option>
+                <option value="dav public school">dav public school</option>
+                <option value="uo board">uo board</option>
+                <option value="karnataka board">karnataka board</option>
+                <option value="west bengal council of higher secondary education">west bengal council of higher secondary education</option>
+                <option value="puboard">puboard</option>
+                <option value="central board of secondary education">central board of secondary education</option>
+                <option value="bie">bie</option>
+                <option value="up baord">up baord</option>
+                <option value="pseb">pseb</option>
+                <option value="board of higher secondary examination, kerala">board of higher secondary examination, kerala</option>
+                <option value="sbte, jharkhand">sbte, jharkhand</option>
+                <option value="department of technical education, bangalore">department of technical education, bangalore</option>
+                <option value="west bengal state council of technical education">west bengal state council of technical education</option>
+                <option value="madhya pradesh board">madhya pradesh board</option>
+                <option value="board of secondary school of education">board of secondary school of education</option>
+                <option value="board of intmediate education ap">board of intmediate education ap</option>
+                <option value="bteup">bteup</option>
+                <option value="pub">pub</option>
+                <option value="diploma in computers">diploma in computers</option>
+                <option value="stateboard">stateboard</option>
+                <option value="board of secondary education, rajasthan">board of secondary education, rajasthan</option>
+                <option value="pre university board">pre university board</option>
+                <option value="cbsc">cbsc</option>
+                <option value="jaycee matriculation school">jaycee matriculation school</option>
+                <option value="mp">mp</option>
+                <option value="uttrakhand board">uttrakhand board</option>
+                <option value="nagpur">nagpur</option>
+                <option value="certificate for higher secondary education (chse)orissa">certificate for higher secondary education (chse)orissa</option>
+                <option value="karnataka pu board">karnataka pu board</option>
+                <option value="s j polytechnic">s j polytechnic</option>
+                <option value="bseb, patna">bseb, patna</option>
+                <option value="mpbse">mpbse</option>
+                <option value="ks rangasamy institute of technology">ks rangasamy institute of technology</option>
+                <option value="bihar intermediate education council">bihar intermediate education council</option>
+                <option value="tamilnadu stateboard">tamilnadu stateboard</option>
+                <option value="board of intermediate education,andhra pradesh">board of intermediate education,andhra pradesh</option>
+                <option value="diploma(msbte)">diploma(msbte)</option>
+                <option value="tamilnadu higher secondary education board">tamilnadu higher secondary education board</option>
+                <option value="board of intermidiate">board of intermidiate</option>
+                <option value="department of pre-university education(government of karnataka)">department of pre-university education(government of karnataka)</option>
+                <option value="karnataka board secondary education">karnataka board secondary education</option>
+                <option value="secondary board of rajasthan">secondary board of rajasthan</option>
+                <option value="intermediate board examination">intermediate board examination</option>
+                <option value="govt of karnataka department of pre-university education">govt of karnataka department of pre-university education</option>
+                <option value="intermedite">intermedite</option>
+                <option value="up(allahabad)">up(allahabad)</option>
+                <option value="chse,orissa">chse,orissa</option>
+                <option value="mpc">mpc</option>
+                <option value="rbse (state board)">rbse (state board)</option>
+                <option value="hsc maharashtra board">hsc maharashtra board</option>
+                <option value="bte up">bte up</option>
+                <option value="state syllabus">state syllabus</option>
+                <option value="up board,allahabad">up board,allahabad</option>
+                <option value="scte vt orissa">scte vt orissa</option>
+                <option value="apbie">apbie</option>
+                <option value="intermideate">intermideate</option>
+                <option value="up board , allahabad">up board , allahabad</option>
+                <option value="board of technical education">board of technical education</option>
+                <option value="state board - tamilnadu">state board - tamilnadu</option>
+                <option value="aurangabad board">aurangabad board</option>
+                <option value="jharkhand academic council">jharkhand academic council</option>
+                <option value="sri chaitanya junior kalasala">sri chaitanya junior kalasala</option>
+                <option value="state  board of intermediate education, andhra pradesh">state  board of intermediate education, andhra pradesh</option>
+                <option value="maharashtra state board for hsc">maharashtra state board for hsc</option>
+                <option value="pune board">pune board</option>
+                <option value="uttaranchal state board">uttaranchal state board</option>
+                <option value="uttranchal board">uttranchal board</option>
+                <option value="ap intermediate board">ap intermediate board</option>
+                <option value="srv girls higher sec school,rasipuram">srv girls higher sec school,rasipuram</option>
+                <option value="nagpur board">nagpur board</option>
+                <option value="dte">dte</option>
+                <option value="aissce">aissce</option>
+                <option value="ibe">ibe</option>
+                <option value="diploma ( maharashtra state board of technical education)">diploma ( maharashtra state board of technical education)</option>
+                <option value="west bengal board of higher secondary education">west bengal board of higher secondary education</option>
+                <option value="hbsc">hbsc</option>
+                <option value="state bord">state bord</option>
+                <option value="gseb">gseb</option>
+                <option value="biec, patna">biec, patna</option>
+                <option value="diploma in engg (e &tc) tilak maharashtra vidayapeeth">diploma in engg (e &tc) tilak maharashtra vidayapeeth</option>
+                <option value="psbte">psbte</option>
+                <option value="central board of secondary education, new delhi">central board of secondary education, new delhi</option>
+                <option value="pre university">pre university</option>
+                <option value="nashik board">nashik board</option>
+                <option value="board of intermediate education,ap">board of intermediate education,ap</option>
+                <option value="karnataka state pre- university board">karnataka state pre- university board</option>
+                <option value="state board ">state board </option>
+                <option value="board of intermediate education,andra pradesh">board of intermediate education,andra pradesh</option>
+                <option value="jstb,jharkhand">jstb,jharkhand</option>
+                <option value="jharkhand acedemic council">jharkhand acedemic council</option>
+                <option value="board of school education harayana">board of school education harayana</option>
+                <option value="department of pre university education">department of pre university education</option>
+                <option value="intermediate board of education,andhra pradesh">intermediate board of education,andhra pradesh</option>
+                <option value="nios">nios</option>
+                <option value="karnataka pre-university">karnataka pre-university</option>
+                <option value="tamil nadu polytechnic">tamil nadu polytechnic</option>
+                <option value="intermediate board of education">intermediate board of education</option>
+                <option value="andhra pradesh board of secondary education">andhra pradesh board of secondary education</option>
+                <option value="department of pre-university education, bangalore">department of pre-university education, bangalore</option>
+                <option value="jharkhand acamedic council (ranchi)">jharkhand acamedic council (ranchi)</option>
+                <option value="board of intermediate education, ap">board of intermediate education, ap</option>
+                <option value="jawahar higher secondary school">jawahar higher secondary school</option>
+                <option value="scte and vt ,orissa">scte and vt ,orissa</option>
+                <option value="karnataka secondary education board">karnataka secondary education board</option>
+                <option value="mp board bhopal">mp board bhopal</option>
+                <option value="isc board">isc board</option>
+                <option value="biec">biec</option>
+                <option value="intermediate board of andhra pardesh">intermediate board of andhra pardesh</option>
+                <option value="science college">science college</option>
+                <option value="dav public school,hehal">dav public school,hehal</option>
+                <option value="board of technicaleducation ,delhi">board of technicaleducation ,delhi</option>
+                <option value="maharashtra board, pune">maharashtra board, pune</option>
+                <option value="board of intermediate education:ap,hyderabad">board of intermediate education:ap,hyderabad</option>
+                <option value="aligarh muslim university">aligarh muslim university</option>
+                <option value="latur board">latur board</option>
+                <option value="chse,odisha">chse,odisha</option>
+                <option value="gujarat board">gujarat board</option>
+                <option value="bciec,patna">bciec,patna</option>
+                <option value="biec,patna">biec,patna</option>
+                <option value="staae board">staae board</option>
+                <option value="up board allahabad">up board allahabad</option>
+                <option value="cbse board">cbse board</option>
+                <option value="maharashtra state(latur board)">maharashtra state(latur board)</option>
+                <option value="karnataka pre unversity board">karnataka pre unversity board</option>
+                <option value="andhra pradesh state board">andhra pradesh state board</option>
+                <option value="maharashtra">maharashtra</option>
+                <option value="punjab state board of technical education & industrial training, chandigarh">punjab state board of technical education & industrial training, chandigarh</option>
+                <option value="bihar school examination board patna">bihar school examination board patna</option>
+                <option value="ap board for intermediate education">ap board for intermediate education</option>
+                <option value="scte&vt">scte&vt</option>
+                <option value="board of intermediate,ap">board of intermediate,ap</option>
+                <option value="punjab state board of technical education & industrial training">punjab state board of technical education & industrial training</option>
+                <option value="andhra pradesh">andhra pradesh</option>
+                <option value="pre-university">pre-university</option>
+                <option value="bice">bice</option>
+                <option value="board of higher secondary orissa">board of higher secondary orissa</option>
+                <option value="biec patna">biec patna</option>
+                <option value="electonincs and communication(dote)">electonincs and communication(dote)</option>
+                <option value="j & k board">j & k board</option>
+                <option value="msbshse,pune">msbshse,pune</option>
+                <option value="intermediate council patna">intermediate council patna</option>
+                <option value="scte & vt (diploma)">scte & vt (diploma)</option>
+                <option value="karnataka secondary education">karnataka secondary education</option>
+                <option value="karnataka board of university">karnataka board of university</option>
+                <option value="chse, odisha">chse, odisha</option>
+                <option value="tamilnadu state board">tamilnadu state board</option>
+                <option value="karnataka pu">karnataka pu</option>
+                <option value="intermediate state board">intermediate state board</option>
+                <option value="stjoseph of cluny matrhrsecschool,neyveli,cuddalore district">stjoseph of cluny matrhrsecschool,neyveli,cuddalore district</option>
+                <option value="wbscte">wbscte</option>
+                <option value="board of high school and intermediate education uttarpradesh">board of high school and intermediate education uttarpradesh</option>
+                <option value="andhpradesh board of intermediate education">andhpradesh board of intermediate education</option>
+                <option value="msbte (diploma in computer technology)">msbte (diploma in computer technology)</option>
+                <option value="upbhsie">upbhsie</option>
+                <option value="apbsc">apbsc</option>
+                <option value="sda matric higher secondary school">sda matric higher secondary school</option>
+                <option value="stateboard/tamil nadu">stateboard/tamil nadu</option>
+                <option value="board of intermidiate education,ap">board of intermidiate education,ap</option>
+                <option value="ghseb">ghseb</option>
+                <option value="kolhapur">kolhapur</option>
+                <option value="international baccalaureate (ib) diploma">international baccalaureate (ib) diploma</option>
+                <option value="state board of technical eduction panchkula">state board of technical eduction panchkula</option>
+                <option value="board of intermediate(bie)">board of intermediate(bie)</option>
+                <option value="state board of technical education and training">state board of technical education and training</option>
+                <option value="secnior secondary education board of rajasthan">secnior secondary education board of rajasthan</option>
+                <option value="karnataka sslc">karnataka sslc</option>
+                <option value="isc board , new delhi">isc board , new delhi</option>
+                <option value="hsc pune">hsc pune</option>
+                <option value="gshseb">gshseb</option>
+                <option value="maharashtra nasik board">maharashtra nasik board</option>
+                <option value="ua">ua</option>
+                <option value="karnatak pu board">karnatak pu board</option>
+                <option value="state broad">state broad</option>
+                <option value="dote (diploma - computer engg)">dote (diploma - computer engg)</option>
+                <option value="pue">pue</option>
+                <option value="uttaranchal shiksha avam pariksha parishad">uttaranchal shiksha avam pariksha parishad</option>
+                <option value="biec-patna">biec-patna</option>
+                <option value="himachal pradesh board">himachal pradesh board</option>
+                <option value="apsb">apsb</option>
+                <option value="rajasthan board ajmer">rajasthan board ajmer</option>
+                <option value="technical board, punchkula">technical board, punchkula</option>
+                <option value=" board of intermediate"> board of intermediate</option>
+                <option value="mbose">mbose</option>
+                <option value="bright way college, (up board)">bright way college, (up board)</option>
+                <option value="sjrcw">sjrcw</option>
+                <option value="u p">u p</option>
+                <option value="mpboard">mpboard</option>
+                <option value="up bord">up bord</option>
+                <option value="intermidiate">intermidiate</option>
+                <option value="dept of pre-university education">dept of pre-university education</option>
+                <option value="himachal pradesh board of school education">himachal pradesh board of school education</option>
+                <option value="dpue">dpue</option>
+                <option value="board of intermeadiate education">board of intermeadiate education</option>
+                <option value="bsemp">bsemp</option>
+                <option value="karnataka education board">karnataka education board</option>
+            </select><br><br>
+        </h5>
+
+        <!-- CollegeTier -->
+        <h5><span class="badge badge-secondary">College Tier</span> 
+            <select id="CollegeTier" name="CollegeTier" size="2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select><br><br>
+        </h5>
+
+        <!-- Specialization  -->
+        <h5><span class="badge badge-secondary">Specialization</span> 
+            <select id="Specialization" name="Specialization" size="3">
+                <option value="instrumentation and control engineering">instrumentation and control engineering</option>
+                <option value="computer science & engineering">computer science & engineering</option>
+                <option value="electronics & telecommunications">electronics & telecommunications</option>
+                <option value="biotechnology">biotechnology</option>
+                <option value="mechanical engineering">mechanical engineering</option>
+                <option value="information technology">information technology</option>
+                <option value="electronics and communication engineering">electronics and communication engineering</option>
+                <option value="computer engineering">computer engineering</option>
+                <option value="computer application">computer application</option>
+                <option value="computer science and technology">computer science and technology</option>
+                <option value="electrical engineering">electrical engineering</option>
+                <option value="automobile/automotive engineering">automobile/automotive engineering</option>
+                <option value="electronics and electrical engineering">electronics and electrical engineering</option>
+                <option value="information science engineering">information science engineering</option>
+                <option value="chemical engineering">chemical engineering</option>
+                <option value="instrumentation engineering">instrumentation engineering</option>
+                <option value="electronics & instrumentation eng">electronics & instrumentation eng</option>
+                <option value="ceramic engineering">ceramic engineering</option>
+                <option value="metallurgical engineering">metallurgical engineering</option>
+                <option value="aeronautical engineering">aeronautical engineering</option>
+                <option value="electronics engineering">electronics engineering</option>
+                <option value="electronics and instrumentation engineering">electronics and instrumentation engineering</option>
+                <option value="applied electronics and instrumentation">applied electronics and instrumentation</option>
+                <option value="civil engineering">civil engineering</option>
+                <option value="computer and communication engineering">computer and communication engineering</option>
+                <option value="industrial & production engineering">industrial & production engineering</option>
+                <option value="computer networking">computer networking</option>
+                <option value="other">other</option>
+                <option value="electronics and computer engineering">electronics and computer engineering</option>
+                <option value="control and instrumentation engineering">control and instrumentation engineering</option>
+                <option value="mechanical & production engineering">mechanical & production engineering</option>
+                <option value="mechanical and automation">mechanical and automation</option>
+                <option value="industrial & management engineering">industrial & management engineering</option>
+                <option value="biomedical engineering">biomedical engineering</option>
+                <option value="electrical and power engineering">electrical and power engineering</option>
+                <option value="telecommunication engineering">telecommunication engineering</option>
+                <option value="industrial engineering">industrial engineering</option>
+                <option value="mechatronics">mechatronics</option>
+                <option value="embedded systems technology">embedded systems technology</option>
+                <option value="electronics">electronics</option>
+                <option value="information & communication technology">information & communication technology</option>
+                <option value="information science">information science</option>
+            </select><br><br>
+        </h5>
+
+        <!-- CollegeCityTier
+        <h5><span class="badge badge-secondary">College City Tier</span> 
+            <select id="CollegeCityTier" name="CollegeCityTier" size="2">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select><br><br>
+        </h5> -->
+
+        <!-- CollegeState -->
+        <h5><span class="badge badge-secondary">College State</span> 
+            <select id="CollegeState" name="CollegeState" size="3">
+                <option value="Delhi">Delhi</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Punjab">Punjab</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Orissa">Orissa</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Union Territory">Union Territory</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Assam">Assam</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Goa">Goa</option>
+            </select><br><br>
+        </h5>
+
+        <br><br>
+        <button style="height:45px;width:150px;font-size: 20px;text-align: center;line-height: 20px;background-color:#2a7886; color: cornsilk; type="button" class="btn btn-info">🔍 Predict</button>
+        </form><br>
+        </center>
+    </div>
+    <br>
+
+    <!-- Log Out -->
+    <center>
+        <form action = "http://127.0.0.1:5000">
+        <button   type="button" class="btn btn-info"">Home</button>
+        </form><br><br>
+    </center>
+    
+    <!--JavaScript at end of body for optimized loading-->
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     <script type="text/javascript" src="js/materialize.min.js"></script>
+
+</body>
+</html>
